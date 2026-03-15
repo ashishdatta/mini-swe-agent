@@ -63,6 +63,15 @@ class SwerexCloudflareEnvironment:
                 }
             )
 
+    def stop(self):
+        async def _stop():
+            await asyncio.wait_for(self.deployment.stop(), timeout=10)
+
+        try:
+            asyncio.run(_stop())
+        except Exception:
+            pass
+
     def get_template_vars(self, **kwargs) -> dict[str, Any]:
         return recursive_merge(self.config.model_dump(), kwargs)
 
