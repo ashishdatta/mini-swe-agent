@@ -1,0 +1,13 @@
+# SWE-bench Cloudflare environment configuration
+#
+# This config provides Cloudflare environment settings for SWE-bench runs.
+# It should be used together with the base swebench config:
+#
+# Usage:
+#   mini-extra swebench -c swebench -c swebench_cloudflare [other options]
+
+environment:
+  environment_class: swerex_cloudflare
+  cwd: "/root"
+  timeout: 60
+  worker_url: "https://swerex-cf-container.ashishbdatta.workers.dev"
